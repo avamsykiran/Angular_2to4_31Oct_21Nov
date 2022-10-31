@@ -47,6 +47,74 @@ Angular
 
     Angular CLI
     ---------------------------------------------------------
+        Angular CLI - Commanbd Line Interface is a frotier of many tools,
+        using which we can create and manage the angular application structure and
+        also trigger operations like building, executing, testing and so on .
+
+
+        ng new project-name
+
+        project-name\> ng serve                     compiles, and builds a bundle and launches a dev-server on 4300 port.
+        project-name\> ng serve --port 9999 -o      compiles, and builds a bundle and launches a dev-server on 9999 port.
+        project-name\> ng build                     compiles, and builds a bundle and is stroed in 'dist' folder.
+        project-name\> ng test                      compile, build and execute the test cases.
+
+
+    Angular Archetecture
+    -----------------------------------------------------------
+
+        An angular application is made up of a variety of resources.
+        Each angular resource is a typescript class.
+        Each class is marked witha decorator to identify its role.
+        Each decorator is given a json object. And that is called meta-data which offers the resource config.
+
+        Modules
+                @NgMNodule({
+                    declarations:[],
+                    exports:[],
+                    imports:[],
+                    providers:[],
+                    bootstrap:[]
+                })
+                class SalesModule{}
+
+        Component Directives
+                @Component({
+                    selector:'',
+                    templateUrl:'',
+                    styleUrls:[]
+                })
+                class DashboardComponent {}
+
+        Directives
+                @Directive({
+                    selector:''
+                })
+                class FastMovingStock {}
+
+        Services
+                @Injectable({
+                    providedIn:'root'
+                })
+                class SalesService {}
+
+        Pipes
+                @Pipe({
+                    name:''
+                })
+                class ToWordsPipe {}
+
+        Guards  
+                @Injectable()
+                class AdminUsersGuard {}
+
+        Interceptors
+                @Injectable()
+                class JwtTokenInterceptor {}
+         ...etc.,
+
+
+
                                          
 
     

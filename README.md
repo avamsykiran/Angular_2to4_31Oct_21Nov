@@ -51,14 +51,23 @@ Angular
         using which we can create and manage the angular application structure and
         also trigger operations like building, executing, testing and so on .
 
-
         ng new project-name
 
         project-name\> ng serve                     compiles, and builds a bundle and launches a dev-server on 4300 port.
         project-name\> ng serve --port 9999 -o      compiles, and builds a bundle and launches a dev-server on 9999 port.
         project-name\> ng build                     compiles, and builds a bundle and is stroed in 'dist' folder.
-        project-name\> ng test                      compile, build and execute the test cases.
+        project-name\> ng test                      compiles, build and execute the test cases.
 
+        project-name\> ng generate module ModuleName
+        project-name\> ng generate component ComponentName
+        project-name\> ng g c ComponentName --skip-tests
+        project-name\> ng g service ServiceName --skip-tests
+        project-name\> ng g directive DirectiveName --skip-tests
+        project-name\> ng g pipe PipeName --skip-tests
+        project-name\> ng g class ClassName --skip-tests
+        project-name\> ng g guard GuardName --skip-tests
+        project-name\> ng g interceptor InterceptorName --skip-tests
+        project-name\> ng g interface InterfaceName
 
     Angular Archetecture
     -----------------------------------------------------------
@@ -78,13 +87,102 @@ Angular
                 })
                 class SalesModule{}
 
+                Angular Modules are different from Javascript Modules, they lay side by side in angular app.
+                Each .js file or .ts file is a javascript module.
+                Angular Module are typescript classes that logical repressnt a cohesive group of components,directives,pipes and services.
+
+                Each angular app must be wrapped insdie a top-level module called 'root-module' generally represented by
+                'app.module.ts' file. Modules other than root-module are called 'feature-module'.
+
+                declarations        holds the list of components, pipes and directive that belong to this module.
+                exports             holds the list of components, pipes and directive that belong to this module and are allowed
+                                    to be accessed outside this module
+                imports             holds a list of other modules, whsoe resoruce we will access in the current module.
+                providers           holds a list of service belonging to the current module.
+                bootstrap           holds the top-level component to be rendered on the screen immidiatly after the current 
+                                    module is loaded
+
         Component Directives
-                @Component({
-                    selector:'',
-                    templateUrl:'',
-                    styleUrls:[]
-                })
-                class DashboardComponent {}
+
+                a component is a new html element defiend using angular.
+
+                Component =     class                       +       template        +       styleSheet
+                            state and behaviour                   html - dom                css styles  
+                            fields make up the state
+                            methods make up the behaviour
+
+
+                login.component.ts
+                -------------------------
+                    @Component({
+                        selector:'app-login',
+                        templateUrl:'login.component.html',
+                        styleUrls:[]
+                    })
+                    class DashboardComponent {
+                        userName:string;
+                        password:string;
+
+                        constructor(){
+                            this.userName='';
+                            this.password:'';
+                        }
+
+                        handleSubmit(){
+                            /* we need to handle the form submit event */
+                        }
+                    }
+
+
+                login.component.html
+                -----------------------------
+                    <form>
+                        <label>UserName : <input type="text" /> </label>
+                        <label>Passord : <input type="password" /> </label>
+                        <button>Sign In</button>
+                    </form>
+
+
+                <app-login></app-login>
+
+                Data Binding
+                ---------------------------
+
+                    Interpolation
+                        injecting the value of a field or expression into html dom using {{}}.
+
+                        <p>Hello {{userName}}, welcome to our app.</p>
+
+                    One-way data binding
+                        attribute bidning
+
+                            allows to bind the value of a field to an attribute using []
+
+                            <table width="250"></table>
+                            <table [width]="x"></table>
+
+                        style binding
+                            allows to bind the value of a field to a css-property using []
+
+                            <table style="background-color:#ff00ff"></table>
+                            <table [style.backgroundColor]="bgColor"></table>
+
+                        class binding
+                            allows to bind the value of a boolean field to a class name using []
+
+                            <table class="table-bordered table-striped"></table>
+                            <table [class.tableBordered]="booleanField1" [class.tableStriped]="booleanField2"></table>
+
+                        event binding
+                            allows us to bidn amethod with an html event using ().
+
+                            <button (click)="method1()"></button>
+
+                    Two-way data binding
+
+                            only to handle form-elements like input,select,textarea ..etc.,
+
+                            
 
         Directives
                 @Directive({

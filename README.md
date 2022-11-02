@@ -153,8 +153,15 @@ Angular
 
                         <p>Hello {{userName}}, welcome to our app.</p>
 
+                     Two-way data binding
+
+                            only to handle form-elements like input,select,textarea ..etc.,
+                            for this we use 'ngModel' attribute directive from 'FormsModule' module.
+
+                            <input name="tb1" [(ngModel)]="userName" />
+
                     One-way data binding
-                        attribute bidning
+                        attribute binding
 
                             allows to bind the value of a field to an attribute using []
 
@@ -178,10 +185,7 @@ Angular
 
                             <button (click)="method1()"></button>
 
-                    Two-way data binding
-
-                            only to handle form-elements like input,select,textarea ..etc.,
-
+                   
                             
 
         Directives

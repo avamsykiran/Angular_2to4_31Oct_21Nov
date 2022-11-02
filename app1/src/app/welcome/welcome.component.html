@@ -1,0 +1,16 @@
+<section>
+    <p>Hello <strong>{{userName}}</strong>! Welcome to our Angular SPA!</p>
+
+    <form>
+        <div>
+            <label>
+                User Name:
+                <input type="text" name="unm" [(ngModel)]="userName" />
+            </label>
+        </div>
+    </form>
+
+    <div>
+        <img [src]="logos[logoIndex]" (click)="toggle()" />
+    </div>
+</section>

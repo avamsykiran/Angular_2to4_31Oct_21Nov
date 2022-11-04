@@ -181,18 +181,24 @@ Angular
                             <table [class.tableBordered]="booleanField1" [class.tableStriped]="booleanField2"></table>
 
                         event binding
-                            allows us to bidn amethod with an html event using ().
+                            allows us to bind amethod with an html event using ().
 
-                            <button (click)="method1()"></button>
+                            <button (click)="method1()"></button>                
 
-                   
-                            
+        Attribute Directives
+        
+                ngModel, click, ...etc.,
 
-        Directives
                 @Directive({
                     selector:''
                 })
                 class FastMovingStock {}
+        
+        Structural Directives 
+
+            *ngIf
+            *ngFor
+            ngSwitch
 
         Services
                 @Injectable({
@@ -201,6 +207,15 @@ Angular
                 class SalesService {}
 
         Pipes
+                is used to tranform a value into another just before rendering!!
+
+                lowercase
+                uppercase
+                titlecase
+                number
+                currency
+                date
+
                 @Pipe({
                     name:''
                 })

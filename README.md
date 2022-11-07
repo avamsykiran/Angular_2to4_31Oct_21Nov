@@ -230,8 +230,18 @@ Angular
                 class JwtTokenInterceptor {}
          ...etc.,
 
-
-
+Bootstrap Integration
+-------------------------------------------------------------
                                          
+    npm install bootstrap --save
 
+    node_modules
+        | - bootstrap
+                |-dist
+                    |-css
+                    |   |-bootstrap.min.css
+                    |-js
+                        |-bootstrap.min.js
     
+    incldue these files inside 'angular.json', styles and scripts section respectivly.
+

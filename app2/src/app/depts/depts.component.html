@@ -1,0 +1,14 @@
+<div class="col-sm-8 mx-auto">
+    <h4>Departments</h4>
+
+    <div class="row text-center fw-bold border-bottom border-primary p-2">
+        <div class="col-sm-2">DeptId</div>
+        <div class="col">Department Name</div>
+        <div class="col">Location</div>
+    </div>
+    <div class="row border-bottom border-secondary p-2" *ngFor="let d of depts">
+        <div class="col-sm-2 text-end">{{d.id}}</div>
+        <div class="col">{{d.name}}</div>
+        <div class="col">{{d.location}}</div>
+    </div>
+</div>

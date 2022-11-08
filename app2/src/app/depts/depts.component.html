@@ -2,13 +2,29 @@
     <h4>Departments</h4>
 
     <div class="row text-center fw-bold border-bottom border-primary p-2">
-        <div class="col-sm-2">DeptId</div>
+        <div class="col-sm-1">DeptId</div>
         <div class="col">Department Name</div>
         <div class="col">Location</div>
+        <div class="col-sm-2">Action</div>
     </div>
-    <div class="row border-bottom border-secondary p-2" *ngFor="let d of depts">
-        <div class="col-sm-2 text-end">{{d.id}}</div>
-        <div class="col">{{d.name}}</div>
-        <div class="col">{{d.location}}</div>
-    </div>
+    <app-dept-form></app-dept-form>
+    <ng-container *ngIf="(depts && depts.length>0);then deptsContent else msgContent">
+    </ng-container>
+    <ng-template #msgContent>
+        <div class="row border-bottom border-secondary p-2">
+            <div class="col text-center">
+                No Records To Display
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #deptsContent>
+        <div class="row border-bottom border-secondary p-2" *ngFor="let d of depts">
+            <div class="col-sm-1 text-end">{{d.id}}</div>
+            <div class="col">{{d.name}}</div>
+            <div class="col">{{d.location}}</div>
+            <div class="col-sm-2">
+                <button class="btn btn-sm btn-danger" (click)="deleteDept(d.id)">DELETE</button>
+            </div>
+        </div>
+    </ng-template>
 </div>

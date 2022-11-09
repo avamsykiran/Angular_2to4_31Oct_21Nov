@@ -9,19 +9,16 @@ import { DeptsService } from '../services/depts.service';
 })
 export class DeptsComponent implements OnInit {
 
-  depts:Dept[];
+  depts!:Dept[];
 
   constructor(private deptsService:DeptsService) {
-    this.depts=deptsService.getAll();
+    this.loadData();
   }
 
   ngOnInit(): void {
   }
 
-  deleteDept(id:number){
-    if(window.confirm("Are you sure of deleting Dept#"+id+"?")){
-      this.deptsService.deleteById(id);
-      this.depts=this.deptsService.getAll();
-    }
+  loadData(){
+    this.depts=this.deptsService.getAll();
   }
 }

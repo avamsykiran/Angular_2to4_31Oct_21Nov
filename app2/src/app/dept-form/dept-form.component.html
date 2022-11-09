@@ -1,14 +1,18 @@
-<form class="row border-bottom border-secondary p-2">
-    <div class="col-sm-1 text-end">
-        <input type="number" class="form-control" />
+<form class="row border-bottom border-secondary p-2" (ngSubmit)="formSubmitted()">
+    <div class="col-sm-2 text-end">
+        <input type="number" class="form-control" name="tb1" [(ngModel)]="dept.id"/>
     </div>
     <div class="col">
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control" name="tb2" [(ngModel)]="dept.name"/>
     </div>
     <div class="col">
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control" name="tb3" [(ngModel)]="dept.location"/>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3" *ngIf="!dept.editable">
         <button class="btn btn-sm btn-primary" >ADD</button>
+    </div>
+    <div class="col-sm-3" *ngIf="dept.editable">
+        <button class="btn btn-sm btn-primary me-1" >SAVE</button>
+        <button type="button" class="btn btn-sm btn-danger" (click)="unMarkEditable()">CANCEL</button>
     </div>
 </form>

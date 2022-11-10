@@ -245,3 +245,30 @@ Bootstrap Integration
     
     incldue these files inside 'angular.json', styles and scripts section respectivly.
 
+Parent - Child Component Data Exchange
+---------------------------------------------------
+
+    Patent to Child Component,
+
+        1. Child Component must have a field marked as @Input()
+        2. Parent Component can do attribute binding on that field of the child component.
+
+    Child to Parent Notification
+
+        1. Child Component must have a field of EventEmitter Type, and it 
+            must be marked as @Output()
+        2. Child Component can call the emit() method on that field to raise a event.
+        3. Parent Component must event bind that field to handle the raised event.
+
+Routing
+----------------------------------------------------
+
+    RouterModule        from '@angular/router'
+
+        Route                   {path:'',pathMatch:'full|startsWith',redirect:'',component:Component}
+        Routes                  an array of Route
+        router-outlet           placeholder for the output component of routing.
+        routerLink              is an attribute directive for 'a' element instead of href.
+        routerLinkActive        is an attribute directive for 'a' element holds a css-class for active links
+        Router                  is a service with navigateByUrl method used to navigate programatically.
+        ActivatedRoute          is a service used to extract information like current-url,url-params ...etc.,

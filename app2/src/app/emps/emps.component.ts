@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DeptsService } from '../services/depts.service';
 
 @Component({
   selector: 'app-emps',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpsComponent implements OnInit {
 
-  constructor() { }
+  dname!:string|undefined;
+
+  constructor(private activatedRoute:ActivatedRoute,private deptsService:DeptsService) { }
 
   ngOnInit(): void {
+    let deptId = this.activatedRoute.snapshot.params['deptId'];
+    this.dname = this.deptsService.getById(deptId)?.name;
   }
 
 }

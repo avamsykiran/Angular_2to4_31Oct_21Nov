@@ -1,1 +1,26 @@
-<p>emps-list works!</p>
+
+<div class="alert alert-info fw-bold p-2" *ngIf="!emps || emps.length===0">
+    No records to display
+</div>
+
+<table class="table table-bordered table-striped" *ngIf="emps && emps.length>0">
+    <thead>
+        <tr>
+            <th>EmpId</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Mobile</th>
+            <th>Mail Id</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of emps">
+            <td>{{e.id}}</td>
+            <td>{{e.fullName}}</td>
+            <td>{{e.salary}}</td>
+            <td>{{e.mobile}}</td>
+            <td>{{e.mail}}</td>
+        </tr>
+    </tbody>
+
+</table>

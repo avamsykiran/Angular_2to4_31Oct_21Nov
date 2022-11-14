@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Emp } from '../models/emp';
+import { EmpsService } from '../services/emps.service';
 
 @Component({
   selector: 'app-emps-list',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpsListComponent implements OnInit {
 
-  constructor() { }
+  emps!:Emp[];
+
+  constructor(private acitvatedRoute:ActivatedRoute,private empsService:EmpsService) { }
 
   ngOnInit(): void {
+    let deptId = this.acitvatedRoute.snapshot.parent?.params["deptId"];
+    this.emps = this.empsService.getAllByDeptId(deptId);
   }
 
 }

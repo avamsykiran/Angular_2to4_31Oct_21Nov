@@ -21,7 +21,7 @@ export class DeptsService {
   }
 
   getById(id:number):Dept|undefined{
-    return this.depts.find(d => d.id===id);
+    return this.depts.find(d => d.id==id);
   }
 
   add(dept:Dept):Dept{

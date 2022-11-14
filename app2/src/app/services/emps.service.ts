@@ -10,10 +10,10 @@ export class EmpsService {
 
   constructor() {
     this.emps = [
-      { id: 1, fullName: "Vamsy", mail: "vamsy@gmail.com", mobile: "9052224753", salary: 45000, empId: 1 },
-      { id: 2, fullName: "Srinivas", mail: "sri@gmail.com", mobile: "9051114753", salary: 55000, empId: 1 },
-      { id: 3, fullName: "Anu", mail: "anu@gmail.com", mobile: "9050004753", salary: 65000, empId: 2 },
-      { id: 4, fullName: "Sunil", mail: "sun@gmail.com", mobile: "9054444753", salary: 75000, empId: 2 }
+      { id: 1, fullName: "Vamsy", mail: "vamsy@gmail.com", mobile: "9052224753", salary: 45000, deptId: 1 },
+      { id: 2, fullName: "Srinivas", mail: "sri@gmail.com", mobile: "9051114753", salary: 55000, deptId: 1 },
+      { id: 3, fullName: "Anu", mail: "anu@gmail.com", mobile: "9050004753", salary: 65000, deptId: 2 },
+      { id: 4, fullName: "Sunil", mail: "sun@gmail.com", mobile: "9054444753", salary: 75000, deptId: 2 }
     ];
   }
 

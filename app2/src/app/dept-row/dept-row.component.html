@@ -4,6 +4,7 @@
     <div class="col">{{dept.location}}</div>
     <div class="col-sm-3">
         <button class="btn btn-sm btn-primary me-1" (click)="markEditable()">EDIT</button>
-        <button class="btn btn-sm btn-danger" (click)="deleteDept()">DELETE</button>
+        <button class="btn btn-sm btn-danger me-1" (click)="deleteDept()">DELETE</button>
+        <a class="btn btn-sm btn-info" [routerLink]="['/emps',dept.id]">Emps</a>
     </div>
 </div>

@@ -272,3 +272,25 @@ Routing
         routerLinkActive        is an attribute directive for 'a' element holds a css-class for active links
         Router                  is a service with navigateByUrl method used to navigate programatically.
         ActivatedRoute          is a service used to extract information like current-url,url-params ...etc.,
+
+Angular Forms
+----------------------------------------------------
+
+    Template Driven Forms
+
+        FormsModule
+            ngForm          valid,invalid
+            ngModel         valid,invalid,errors,prestine,dirty,touched,untouched
+
+            validation are applied using html5 attributes
+
+
+    Model Driven Forms / Reactive forms
+
+        ReactiveFormsModule
+            FormGroup               valid,invalid
+            formControlName
+            FormControl             valid,invalid,errors,prestine,dirty,touched,untouched
+
+            Angualr defiend validators 
+

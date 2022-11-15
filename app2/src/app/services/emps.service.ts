@@ -26,6 +26,7 @@ export class EmpsService {
   }
 
   add(emp: Emp): Emp {
+    emp.id=this.emps.length===0?1:this.emps.map(e => e.id).reduce((id1,id2) => Math.max(id1,id2)) +1;
     this.emps.push(emp);
     return emp;
   }

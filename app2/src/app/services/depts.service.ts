@@ -25,6 +25,7 @@ export class DeptsService {
   }
 
   add(dept:Dept):Dept{
+    dept.id=this.depts.length===0?1:this.depts.map(d => d.id).reduce((id1,id2) => Math.max(id1,id2)) +1;
     this.depts.push(dept);
     return dept;
   }

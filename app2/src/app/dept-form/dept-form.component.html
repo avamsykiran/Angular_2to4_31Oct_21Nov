@@ -1,18 +1,26 @@
-<form class="row border-bottom border-secondary p-2" (ngSubmit)="formSubmitted()">
-    <div class="col-sm-2 text-end">
-        <input type="number" class="form-control" name="tb1" [(ngModel)]="dept.id"/>
+<form (ngSubmit)="formSubmitted()" #f="ngForm">
+    <div class="row p-2" *ngIf="f.invalid">
+        <div class="col fw-bold">
+            <div *ngIf="dnm.invalid && (dnm.touched || dnm.dirty)">Department Name is a mandate field</div>
+            <div *ngIf="loc.invalid && (loc.touched || loc.dirty)">Location is a mandate field</div>
+        </div>
     </div>
-    <div class="col">
-        <input type="text" class="form-control" name="tb2" [(ngModel)]="dept.name"/>
-    </div>
-    <div class="col">
-        <input type="text" class="form-control" name="tb3" [(ngModel)]="dept.location"/>
-    </div>
-    <div class="col-sm-3" *ngIf="!dept.editable">
-        <button class="btn btn-sm btn-primary" >ADD</button>
-    </div>
-    <div class="col-sm-3" *ngIf="dept.editable">
-        <button class="btn btn-sm btn-primary me-1" >SAVE</button>
-        <button type="button" class="btn btn-sm btn-danger" (click)="unMarkEditable()">CANCEL</button>
+    <div class="row border-bottom border-secondary p-2">
+        <div class="col-sm-2 text-end">
+            <input type="number" class="form-control" name="tb1" [(ngModel)]="dept.id" readonly />
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" name="tb2" [(ngModel)]="dept.name" required #dnm="ngModel"/>
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" name="tb3" [(ngModel)]="dept.location" required #loc="ngModel"/>
+        </div>
+        <div class="col-sm-3" *ngIf="!dept.editable">
+            <button class="btn btn-sm btn-primary" [disabled]="f.invalid">ADD</button>
+        </div>
+        <div class="col-sm-3" *ngIf="dept.editable">
+            <button class="btn btn-sm btn-primary me-1" [disabled]="f.invalid">SAVE</button>
+            <button type="button" class="btn btn-sm btn-danger" (click)="unMarkEditable()">CANCEL</button>
+        </div>
     </div>
 </form>

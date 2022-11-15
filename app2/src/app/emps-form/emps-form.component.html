@@ -1,1 +1,49 @@
-<p>emps-form works!</p>
+<form class="col-sm-8 p-2 mx-auto" [formGroup]="empForm" (ngSubmit)="formSubmitted()">
+    <div class="row">
+        <div class="col">
+            <label>Employee Id</label>
+            <input type="number" formControlName="id" readonly class="form-control"/>
+        </div>
+        <div class="col">
+            <label>Department Id</label>
+            <input type="number" formControlName="deptId" readonly class="form-control"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>Full Name</label>
+            <input type="text" formControlName="fullName" class="form-control"/>
+            <ol class="alert alert-danger p-1" *ngIf="fullNameFC.invalid && (fullNameFC.touched || fullNameFC.dirty )">
+                <li>This field is mandate</li>
+            </ol>
+        </div>
+        <div class="col">
+            <label>Salary</label>
+            <input type="number" formControlName="salary" class="form-control"/>
+            <ol class="alert alert-danger p-1" *ngIf="salaryFC.invalid && (salaryFC.touched || salaryFC.dirty )">
+                <li>This field is mandate</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>Mobile</label>
+            <input type="text" formControlName="mobile" class="form-control"/>
+            <ol class="alert alert-danger p-1" *ngIf="mobileFC.invalid && (mobileFC.touched || mobileFC.dirty )">
+                <li *ngIf="mobileFC.errors!['required']">This field is mandate</li>
+                <li *ngIf="mobileFC.errors!['pattern']">A 10 digit number expected</li>
+            </ol>
+        </div>
+        <div class="col">
+            <label>Mail Id</label>
+            <input type="text" formControlName="mail" class="form-control"/>
+            <ol class="alert alert-danger p-1" *ngIf="mailFC.invalid && (mailFC.touched || mailFC.dirty )">
+                <li *ngIf="mailFC.errors!['required']">This field is mandate</li>
+                <li *ngIf="mailFC.errors!['email']">A valid email id expected</li>
+            </ol>
+        </div>
+    </div>
+    <div class="col d-grid p-2">
+        <button class="btn btn-primary" [disabled]="empForm.invalid">SAVE</button>
+    </div>
+</form>

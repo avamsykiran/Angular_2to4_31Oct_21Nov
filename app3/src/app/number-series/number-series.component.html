@@ -1,0 +1,23 @@
+<form class="m-4" (ngSubmit)="start()">
+    <div class="row">
+        <div class="col">
+            <label>Lower Bound</label>
+            <input type="number" name="tb1" [(ngModel)]="lb" class="form-control" />
+        </div>
+        <div class="col">
+            <label>Upper Bound</label>
+            <input type="number" name="tb2" [(ngModel)]="ub" class="form-control" />
+        </div>
+    </div>
+    <div class="d-grid mt-2">
+        <button class="btn btn-primary" [disabled]="isJobRunning">START</button>
+    </div>
+</form>
+
+<div class="alert alert-danger p-2 fw-bold mt-2" *ngIf="errMsg">
+    {{errMsg}}
+</div>
+
+<div class="alert alert-info p-2 fw-bold mt-2" *ngIf="results && results.length>0">
+    <span *ngFor="let x of results">{{x}} </span>
+</div>

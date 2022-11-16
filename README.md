@@ -292,5 +292,37 @@ Angular Forms
             formControlName
             FormControl             valid,invalid,errors,prestine,dirty,touched,untouched
 
-            Angualr defiend validators 
+            Angular defiend validators 
 
+RxJS
+--------------------------------------------------------
+
+    Reactive JavaScript
+
+        offers reactive programming.
+        in an synchrnous senario, where we have a background job and a foreground job,
+
+        once the background job is completed or has encountered an error, the foreground
+        job has to react to it.
+
+        for this communication between asynchronous background job and foreground job
+        rxjs offers 'Observable'.
+
+
+        const bgJob = (observer) => {
+
+            //the time consuming operation is programmed here....
+
+            observer.next(val); //is used to emit intermediate results of the job.
+            observer.error(err); //is used to emit the error if any occured
+            observer.complete(); //is used to indicate that the job is complete.
+
+        };
+
+        let ob = new Observable(bgJob);
+
+        ob.subscribe({
+            next: val => {/*recieve the value and process it*/ },
+            error: err => { /*handle the error */ }
+            complete: () => { /*whatever we have to do on bg job completion*/ }
+        });

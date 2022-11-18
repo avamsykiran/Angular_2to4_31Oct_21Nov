@@ -1,0 +1,10 @@
+<div class="row border-bottom border-secondary p-2" >
+    <div class="col-sm-2 text-end">{{dept.id}}</div>
+    <div class="col">{{dept.name}}</div>
+    <div class="col">{{dept.location}}</div>
+    <div class="col-sm-3">
+        <button class="btn btn-sm btn-primary me-1" (click)="markEditable()">EDIT</button>
+        <button class="btn btn-sm btn-danger me-1" (click)="deleteDept()">DELETE</button>
+        <a class="btn btn-sm btn-info" [routerLink]="['/emps',dept.id]">Emps</a>
+    </div>
+</div>

@@ -326,3 +326,41 @@ RxJS
             error: err => { /*handle the error */ }
             complete: () => { /*whatever we have to do on bg job completion*/ }
         });
+
+json-server
+------------------------------------------------------------------------
+
+    Assuming http://localhost:7777/emps as rest-api url (end-point)
+
+    Http Methods                                Data Operation on rest-api
+        GET       http://localhost:7777/emps          retrive  all emps
+                  http://localhost:7777/emps/101      retrive an emp with empId 101  
+        POST      http://localhost:7777/emps          insertion
+        PUT       http://localhost:7777/emps/101      updation happens on emp with empId 101
+        DELETE    http://localhost:7777/emps/101      delete emp with empId 101
+
+
+    json-server is used to create fake rest-api for learning purpose.
+
+    json-server uses a .json file to access the data.
+
+    steps to create rest-api using json-server
+        1. md rest-api
+        2. cd rest-api
+        3. npm init -y
+        4. npm install json-server --save
+        5. in package.json add a script "start":"json-server --port 7777 --watch ./data.json"
+        6. create a file data.json that holds the hypothetical data.
+
+HttpClient
+------------------------------------------------------------------------
+
+    HttpClient from HttpClientModule from '@angular/common/http'
+
+    HttpClient
+        get(url) : Observable
+        post(url,reqBody) : Observable
+        put(url,reqBody) : Observable
+        delete(url) : Observable
+
+        

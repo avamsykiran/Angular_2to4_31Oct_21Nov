@@ -1,0 +1,13 @@
+{
+    "depts":[
+        {"id":1,"name":"Sales","location":"Delhi"},
+        {"id":2,"name":"Accounts","location":"Mumbai"},
+        {"id":3,"name":"Operations","location":"Vizag"}
+    ],
+    "emps":[
+        { "id": 1, "fullName": "Vamsy", "mail": "vamsy@gmail.com", "mobile": "9052224753", "salary": 65000, "deptId": 1 },
+        { "id": 1, "fullName": "Srinu", "mail": "srinu@gmail.com", "mobile": "9052224753", "salary": 55000, "deptId": 1 },
+        { "id": 1, "fullName": "Sunil", "mail": "anu@gmail.com", "mobile": "9052224753", "salary": 75000, "deptId": 2 },
+        { "id": 1, "fullName": "Anu", "mail": "sunil@gmail.com", "mobile": "9052224753", "salary": 85000, "deptId": 2 }
+    ]
+}

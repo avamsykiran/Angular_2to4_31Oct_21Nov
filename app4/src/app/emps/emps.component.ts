@@ -15,7 +15,9 @@ export class EmpsComponent implements OnInit {
 
   ngOnInit(): void {
     let deptId = this.activatedRoute.snapshot.params['deptId'];
-    this.dname = this.deptsService.getById(deptId)?.name;
+    this.deptsService.getById(deptId).subscribe({
+      next: data => this.dname=data.name
+    })
   }
 
 }

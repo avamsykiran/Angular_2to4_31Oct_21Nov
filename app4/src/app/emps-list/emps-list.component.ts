@@ -16,7 +16,9 @@ export class EmpsListComponent implements OnInit {
 
   ngOnInit(): void {
     let deptId = this.acitvatedRoute.snapshot.parent?.params["deptId"];
-    this.emps = this.empsService.getAllByDeptId(deptId);
+    this.empsService.getAllByDeptId(deptId).subscribe({
+      next: data => this.emps =data
+    })
   }
 
 }

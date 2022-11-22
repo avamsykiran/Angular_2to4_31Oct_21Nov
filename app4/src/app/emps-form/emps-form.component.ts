@@ -48,7 +48,8 @@ export class EmpsFormComponent implements OnInit {
   }
 
   formSubmitted(){
-    this.empsService.add(this.empForm.value);
-    this.router.navigateByUrl("/emps/"+this.empForm.value.deptId+"/list");
+    this.empsService.add(this.empForm.value).subscribe({
+      next: data => this.router.navigateByUrl("/emps/"+this.empForm.value.deptId+"/list")
+    })
   }
 }
